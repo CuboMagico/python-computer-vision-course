@@ -1,7 +1,4 @@
-from cmath import pi
-from sre_constants import SUCCESS
-import cv2, time
-import mediapipe as mp
+import cv2, time, mediapipe as mp
 
 
 class HandDetector () :
