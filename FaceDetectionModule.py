@@ -8,8 +8,8 @@ class FaceDetector () :
         self.detectionCon = detectionCon
 
         self.mpDraw = mp.solutions.drawing_utils
-        mpFaceDetection = mp.solutions.face_detection
-        self.faceDetection = mpFaceDetection.FaceDetection(self.detectionCon)
+        self.mpFaceDetection = mp.solutions.face_detection
+        self.faceDetection = self.mpFaceDetection.FaceDetection(self.detectionCon)
 
 
     def findFace (self, img, draw=True) :
@@ -75,7 +75,7 @@ def main () :
 
         success, img = cap.read()
 
-        img = imutils.resize(img, height=1080)
+        img = imutils.resize(img, height=720)
 
         img, bboxes = detector.findFace(img)
 
