@@ -58,7 +58,7 @@ def main () :
         img = imutils.resize(img, height=720)
 
         
-        img = detector.findFaceMesh(img)
+        img, faces = detector.findFaceMesh(img)
 
         
         currentTime = time.time()

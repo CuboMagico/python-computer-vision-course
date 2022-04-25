@@ -15,7 +15,7 @@ class HandDetector () :
         self.mpDraw = mp.solutions.drawing_utils
 
 
-    def findHands (self, img, draw = True) :
+    def findHands (self, img, draw=True) :
         
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         self.results = self.hands.process(imgRGB)
@@ -44,8 +44,7 @@ class HandDetector () :
 
                 lmList.append([id, cx, cy])
 
-                if draw :
-                    cv2.putText(img, str(int(id)), (cx, cy), cv2.FONT_HERSHEY_PLAIN, 1, (255, 0, 255), 1)
+                
 
         return lmList
 
