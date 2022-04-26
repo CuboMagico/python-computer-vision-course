@@ -1,10 +1,13 @@
 import cv2, time, imutils, numpy as np
-from matplotlib.pyplot import sca
+
 from classes import HandDetector
 
 from ctypes import cast, POINTER
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
+
+
+
 
 cap = cv2.VideoCapture(0)
 

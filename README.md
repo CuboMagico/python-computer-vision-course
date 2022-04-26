@@ -2,4 +2,4 @@
 
 <p>O curso está disponível no canal do youtube do freeCodeCamp.org</p>
 
-<a href="https://www.youtube.com/watch?v=01sAkU_NvOY">Vídeo original</a>
+<a href="https://www.youtube.com/watch?v=01sAkU_NvOY" target="_blank">Vídeo original</a>
