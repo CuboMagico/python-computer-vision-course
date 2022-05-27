@@ -1,3 +1,4 @@
+from re import S
 import cv2, time, mediapipe as mp
 
 
@@ -13,7 +14,6 @@ class HandDetector () :
         self.mpHands = mp.solutions.hands
         self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.complexity, self.detectionCon, self.trackCon)
         self.mpDraw = mp.solutions.drawing_utils
-
 
     def findHands (self, img, draw=True) :
         
@@ -32,7 +32,7 @@ class HandDetector () :
     
     def findPosition (self, img, handNumber=0, draw=True) :
 
-        lmList = []
+        self.lmList = []
 
         if self.results.multi_hand_landmarks :
             hand = self.results.multi_hand_landmarks[handNumber]
@@ -42,11 +42,23 @@ class HandDetector () :
                 h, w, c = img.shape
                 cx, cy = int(lm.x * w), int(lm.y * h)
 
-                lmList.append([id, cx, cy])
+                self.lmList.append([id, cx, cy])
 
-                
+        return self.lmList
 
-        return lmList
+
+    def fingersUp (self) :
+        fingers = []
+
+        for id in range(8, 21, 4) :
+            if self.lmList[id][2] < self.lmList[id - 2][2] :
+                fingers.append(1)
+
+            else :
+                fingers.append(0)
+        
+        return fingers
+
 
 
 def main () :
